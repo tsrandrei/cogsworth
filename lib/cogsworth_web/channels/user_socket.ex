@@ -3,6 +3,7 @@ defmodule CogsworthWeb.UserSocket do
 
   ## Channels
   # channel "room:*", CogsworthWeb.RoomChannel
+  channel "lights:*", CogsworthWeb.LightsChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After

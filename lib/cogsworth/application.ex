@@ -9,10 +9,12 @@ defmodule Cogsworth.Application do
     children = [
       # Start the Telemetry supervisor
       CogsworthWeb.Telemetry,
+      {Registry, keys: :unique, name: Registry.Cogsworth},
       # Start the PubSub system
       {Phoenix.PubSub, name: Cogsworth.PubSub},
+      # {Cogsworth.LightsTracker, [name: LightsTracker, pubsub_server: Cogsworth.PubSub]},
       # Start the Endpoint (http/https)
-      CogsworthWeb.Endpoint
+      CogsworthWeb.Endpoint,
       # Start a worker by calling: Cogsworth.Worker.start_link(arg)
       # {Cogsworth.Worker, arg}
     ]

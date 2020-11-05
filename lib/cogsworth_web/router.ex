@@ -14,14 +14,8 @@ defmodule CogsworthWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", CogsworthWeb do
-    pipe_through :browser
-
-    live "/", PageLive, :index
-  end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", CogsworthWeb do
+  # # Other scopes may use custom stacks.
+  # scope "/api/lights", CogsworthWeb do
   #   pipe_through :api
   # end
 
