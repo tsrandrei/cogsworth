@@ -34,4 +34,11 @@ defmodule CogsworthWeb.Router do
       live_dashboard "/dashboard", metrics: CogsworthWeb.Telemetry
     end
   end
+
+  scope "/", CogsworthWeb do
+    pipe_through :browser
+
+    get "/", PageController, :index
+    get "/*path", PageController, :index
+  end
 end
