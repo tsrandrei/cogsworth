@@ -21,18 +21,21 @@ defmodule CogsworthWeb.LightsChannel do
   def handle_in("update:zone:" <> zone_id, %{"on" => on} = payload, socket) do
     Lights.bridge
       |>Lights.LightGroup.toggle(zone_id, on)
+    broadcast! socket, "sync", %{}    
     {:noreply, socket}
   end
 
   def handle_in("update:zone:" <> zone_id, %{"brightness" => bri} = payload, socket) do
     Lights.bridge
       |>Lights.LightGroup.brightness(zone_id, bri)
+    broadcast! socket, "sync", %{}    
     {:noreply, socket}
   end
 
   def handle_in("update:zone:" <> zone_id, %{"color" => [x, y]} = payload, socket) do
     Lights.bridge
       |>Lights.LightGroup.color(zone_id, x, y)
+    broadcast! socket, "sync", %{}    
     {:noreply, socket}
   end
 
