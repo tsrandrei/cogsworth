@@ -33,6 +33,16 @@ defmodule CogsworthWeb.Router do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: CogsworthWeb.Telemetry
     end
+
+    scope "/" do
+      pipe_through :api
+
+      forward "/graphiql", Absinthe.Plug.GraphiQL,
+        schema: CogsworthWeb.Schema.Schema,
+        socket: CogsworthWeb.UserSocket,
+        interface: :simple
+      forward "/api", Absinthe.Plug, schema: CogsworthWeb.Schema.Schema
+    end
   end
 
   scope "/", CogsworthWeb do

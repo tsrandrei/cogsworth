@@ -15,6 +15,7 @@ defmodule Cogsworth.Application do
       # {Cogsworth.LightsTracker, [name: LightsTracker, pubsub_server: Cogsworth.PubSub]},
       # Start the Endpoint (http/https)
       CogsworthWeb.Endpoint,
+      {Absinthe.Subscription, CogsworthWeb.Endpoint}
       # Start a worker by calling: Cogsworth.Worker.start_link(arg)
       # {Cogsworth.Worker, arg}
     ]
