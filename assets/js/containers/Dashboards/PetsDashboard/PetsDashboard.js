@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardContent, Grid, Paper, Typography } from '@material-ui/core';
+import { Card, CardContent, CardHeader, CardMedia, Grid, Typography } from '@material-ui/core';
 import DispenserSettings from '../../../components/Pets/DispenserSettings/DispenserSettings';
+import PetFeederImage from '../../../../../assets/static/images/pet-feeder.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,21 +30,38 @@ export default function PetsDashboard() {
 
   return (
       <Grid container>
-        <Grid item xs={12} sm={2}>
-          <Paper className={classes.paper}>
-            <Typography variant="h3" gutterBottom>State</Typography>
-            Maggie food Weight: 12.88
-            Vapula food Weight: 12.88
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={5}>
+        <Grid item xs={12} sm={4}>
           <Card className={classes.paper}>
             <CardContent>
               <DispenserSettings title="Food" />
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={5}>
+        <Grid item xs={12} sm={4}>
+          <Card className={classes.paper}>
+            <CardHeader
+              title="State"
+              component="h3"
+              titleTypographyProps={
+                {align: "center"}
+              }
+            />
+            <CardMedia>
+              <img src={PetFeederImage} />
+            </CardMedia>
+            <CardContent>
+              <Grid container>
+                <Grid item xs={6}>
+                  <Typography variant="body1" gutterBottom>Vapula: 12.88</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography variant="body1" gutterBottom>Maggie: 12.88</Typography>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={4}>
           <Card className={classes.paper}>
             <CardContent>
               <DispenserSettings title="Treats" />

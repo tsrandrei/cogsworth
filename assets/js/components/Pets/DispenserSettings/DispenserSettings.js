@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, ButtonGroup, InputLabel , Select, MenuItem, FormControl, InputAdornment, TextField, Typography } from '@material-ui/core';
+import { Button, ButtonGroup, Card, CardContent, FormControl, FormGroup, InputLabel , Select, MenuItem, InputAdornment, TextField, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,77 +28,107 @@ export default function DisperserSettings(props) {
 
   return (
     <React.Fragment>
-      <Typography variant="h3" gutterBottom>{props.title}</Typography>
+      <Typography variant="h3" align="center" gutterBottom>{props.title}</Typography>
       <form className={classes.container} noValidate>
-        <div>
-          <TextField
-            id="amount-maggie"
-            label="Amount to fill"
-            defaultValue="10g"
-            helperText="Maggie"
-            variant="outlined"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{
-              endAdornment: <InputAdornment position="end">g</InputAdornment>
-            }}
-          />
-        </div>
-        <div>
-          <TextField
-            id="amount-vapula"
-            label="Amount to fill"
-            defaultValue="10g"
-            helperText="Vapula"
-            variant="outlined"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{
-              endAdornment: <InputAdornment position="end">g</InputAdornment>
-            }}
-          />
-        </div>
-        <div>
-          <InputLabel id="fill-strategy-label">Fill Strategy</InputLabel>
-          <Select
-            labelId="fill-strategy-label"
-            id="fill-strategy"
-            label="Fill strategy"
-          >
-            <MenuItem value={"up-to-amount"}>Fill up to amount</MenuItem>
-            <MenuItem value={"if-empty"}>Fill only if empty</MenuItem>
-            <MenuItem value={"half-unless-empty"}>Fill up half if not empty</MenuItem>
-          </Select>
-        </div>
-        <div>
-          <TextField
-            id="time"
-            label="Fill schedule"
-            type="time"
-            defaultValue="07:30"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            inputProps={{
-              step: 300, // 5 min
-            }}
-          />
-        </div>
-        <div>
-          <Typography variant="h3" gutterBottom>Manual fill</Typography>
-          <br />
-          <FormControl>
-            <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
-              <Button>Both</Button>
-              <Button>Maggie</Button>
-              <Button>Vapula</Button>
-            </ButtonGroup>
-          </FormControl>
-        </div>
+        <Card className={classes.paper}>
+          <CardContent>
+            <FormGroup>
+              <FormControl className={classes.formControl}>
+                  <TextField
+              id="amount-maggie"
+              label="Amount to fill"
+              defaultValue="10g"
+              helperText="Maggie"
+              variant="outlined"
+              type="number"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">g</InputAdornment>
+              }}
+            />
+            </FormControl>
+          </FormGroup>
+          <FormGroup>
+            <FormControl className={classes.formControl}>
+              <TextField
+                id="amount-maggie"
+                label="Amount to fill"
+                defaultValue="10g"
+                helperText="Maggie"
+                variant="outlined"
+                type="number"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  endAdornment: <InputAdornment position="end">g</InputAdornment>
+                }}
+              />
+              </FormControl>
+            </FormGroup>
+            <FormGroup>
+              <FormControl className={classes.formControl}>
+                <TextField
+                  id="amount-vapula"
+                  label="Amount to fill"
+                  defaultValue="10g"
+                  helperText="Vapula"
+                  variant="outlined"
+                  type="number"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  InputProps={{
+                    endAdornment: <InputAdornment position="end">g</InputAdornment>
+                  }}
+                />
+              </FormControl>
+            </FormGroup>
+            <FormGroup>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="fill-strategy-label">Fill Strategy</InputLabel>
+                <Select
+                  labelId="fill-strategy-label"
+                  id="fill-strategy"
+                  label="Fill strategy"
+                >
+                  <MenuItem value={"up-to-amount"}>Fill up to amount</MenuItem>
+                  <MenuItem value={"if-empty"}>Fill only if empty</MenuItem>
+                  <MenuItem value={"half-unless-empty"}>Fill up half if not empty</MenuItem>
+                </Select>
+              </FormControl>
+            </FormGroup>
+            <FormGroup>
+              <FormControl className={classes.formControl}>
+                <TextField
+                  id="time"
+                  label="Fill schedule"
+                  type="time"
+                  defaultValue="07:30"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  inputProps={{
+                    step: 300, // 5 min
+                  }}
+                />
+              </FormControl>
+            </FormGroup>
+            <FormGroup>
+              <Typography variant="h4" align="center" gutterBottom>Manual release</Typography>
+              <br />
+              <FormControl>
+                <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+                  <Button>Both</Button>
+                  <Button>Maggie</Button>
+                  <Button>Vapula</Button>
+                </ButtonGroup>
+              </FormControl>
+            </FormGroup>
+          </CardContent>
+        </Card>
       </form>
     </React.Fragment>
   )

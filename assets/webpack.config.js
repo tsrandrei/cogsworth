@@ -48,7 +48,7 @@ module.exports = (env, options) => {
           ],
         },
         {
-          test: /\.(glb)$/i,
+          test: /\.(glb|jpg|png)$/i,
           use: [
             {
               loader: 'file-loader',
