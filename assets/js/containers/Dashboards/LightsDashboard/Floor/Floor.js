@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import ZoneList from '../../../../components/Lights/ZoneList';
 import Spinner from '../../../../components/Spinner/Spinner';
 import classes from './Floor.module.css';
-import { Switch, Typography } from '@material-ui/core';
+import { Card, CardContent, CardMedia, Switch, Typography } from '@material-ui/core';
 import * as THREE from "three";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { DracoLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 class Floor extends Component {
@@ -191,12 +190,6 @@ class Floor extends Component {
     } else {
       light.power = 0
     }
-    // if(this.state.activeLight){
-    //   const activeLight = this.state.activeLight
-    //   activeLight.color = color.rgb 
-    //   activeLight.power = color.value * 100 / this.onPower;
-    //   this.setState({activeLight: activeLight})
-    // }
   }
 
   render() {
@@ -213,9 +206,9 @@ class Floor extends Component {
     }
 
     return (
-      <div className={classes.Floor}>
-        <header>
-          <Typography variant="h5" align="center">
+      <Card className={classes.Floor}>
+        <div>
+          <Typography variant="h2" align="center" className={classes.heading}>
             <Switch
               inputProps={{ 'aria-label': 'secondary checkbox' }}
               checked={this.props.on}
@@ -223,10 +216,10 @@ class Floor extends Component {
             />
             {this.props.name}
           </Typography>
-        </header>
-        <div className={classes.FloorPreview} ref={ref => (this.mount = ref)} />
-        <footer>{barSelector}</footer>
-      </div>
+        </div>
+        <CardMedia className={classes.FloorPreview} ref={ref => (this.mount = ref)} />
+        <CardContent>{barSelector}</CardContent>
+      </Card>
     )
   }
 }

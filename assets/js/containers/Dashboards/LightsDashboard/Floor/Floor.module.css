@@ -2,7 +2,7 @@
   width: 100%;
   display: block;
 }
-.Floor header h5{
+.Floor .heading{
   padding: 30px 20px;
 }
 .Floor button{
@@ -13,10 +13,4 @@
 }
 .FloorPreview{
   text-align: center;
-}
-
-@media (max-width: 800px){
-  .FloorPreview{
-      border: '1px solid red'
-  }
 }
