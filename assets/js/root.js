@@ -4,6 +4,12 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { brown, teal } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/api',
+  cache: new InMemoryCache()
+});
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -27,8 +33,10 @@ class Root extends Component {
   render() {
     return (
       <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <Dashboard />
+        <ApolloProvider client={client}>
+          <CssBaseline />
+          <Dashboard />
+        </ApolloProvider>
       </ThemeProvider>
     );
   }
