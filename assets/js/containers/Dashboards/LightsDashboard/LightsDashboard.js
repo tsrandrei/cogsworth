@@ -105,6 +105,7 @@ class LightsDashboard extends Component{
         case "1":
         case "4":
         case "5":
+        case "9":
           updatedFloors[1].zones.push(zone);
           updatedFloors[1].zonesLoaded = true;
           this.setState({floors: updatedFloors});

@@ -36,6 +36,10 @@ class Floor extends Component {
           zone.parent.name == "Light2FE" ||
           zone.parent.name == "Light2FB"
           ))
+      case "9": //STAIRS
+        return this.state.zones.filter((zone) => (
+          zone.parent.name == "Light2FA"
+          ))
       case "1": //CAMERA
         return this.state.zones.filter((zone) => (
           zone.parent.name == "Light2FD"
