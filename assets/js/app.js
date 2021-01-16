@@ -36,6 +36,6 @@ window.addEventListener("phx:page-loading-stop", info => NProgress.done())
 import React, { Component } from 'react'
 import * as ReactDOM from 'react-dom'
 
-import Root from './Root';
+import Root from './root';
 
 ReactDOM.render(<Root />, document.getElementById('react-app'))
