@@ -46,7 +46,8 @@ defmodule Cogsworth.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:cors_plug, "~> 2.0.2"},
       {:huex, "~> 0.8.0"},
-      {:absinthe_phoenix, "~> 2.0.0"}
+      {:absinthe_phoenix, "~> 2.0.0"},
+      {:distillery, "~> 2.1.1"}
     ]
   end
 
