@@ -42,7 +42,7 @@ class Floor extends Component {
           ))
       case "1": //CAMERA
         return this.state.zones.filter((zone) => (
-          zone.parent.name == "Light2FD"
+          zone.parent.name == "Light3FA"
           ))
       case "4": //BEDROOM
         return this.state.zones.filter((zone) => (

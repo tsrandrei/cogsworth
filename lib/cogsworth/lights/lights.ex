@@ -25,7 +25,7 @@ defmodule Cogsworth.Lights do
     # bridge = Huex.connect("192.168.1.7") |> Huex.authorize("my-app#my-device")
     # :dets.insert(table, {:hue_username, "value" })
     {:ok, table} = :dets.open_file(:app_settings, type: :set)
-    Huex.connect("192.168.1.7", :dets.lookup(table, :hue_username)[:hue_username])
+    Huex.connect("192.168.1.47", :dets.lookup(table, :hue_username)[:hue_username])
   end
 
   # needed?
