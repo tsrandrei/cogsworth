@@ -1,0 +1,35 @@
+name: Trantor Deploy
+
+on:
+  push:
+    branches: [ master ]
+  # pull_request:
+  #   branches: [ master ]
+
+jobs:
+  build:
+
+    name: Build and release
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+    # - name: Set up Elixir
+    #   uses: ximes/setup-elixir@v1.6.0
+    #   with:
+    #     otp-version: '22'
+    #     elixir-version: '1.7.4'
+    # - name: Restore dependencies cache
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: deps
+    #     key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+    #     restore-keys: ${{ runner.os }}-mix-
+    - run: mix local.rebar --force && mix local.hex --force
+    - run: mix deps.get && mix deps.compile && mix compile
+    - name: Compile assets
+      run: cd assets && yarn install && yarn deploy && cd - && mix phx.digest
+    # - name: Make Release
+    #   run: mix release
+      #&& cp _build/dev/rel/cogsworth/bin/cogsworth /opt/cogsworth/release
+    - run: sudo service cogsworth restart
