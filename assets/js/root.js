@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Dashboard from './containers/Dashboards/Dashboard';
 import { ThemeProvider } from '@material-ui/core/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
-import { brown, teal } from '@material-ui/core/colors';
+import { brown, teal, blue } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 

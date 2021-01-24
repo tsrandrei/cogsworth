@@ -20,7 +20,7 @@ defmodule Cogsworth.MixProject do
   def application do
     [
       mod: {Cogsworth.Application, []},
-      extra_applications: [:logger, :runtime_tools, :httpoison]
+      extra_applications: [:logger, :runtime_tools, :httpoison, :poison]
     ]
   end
 

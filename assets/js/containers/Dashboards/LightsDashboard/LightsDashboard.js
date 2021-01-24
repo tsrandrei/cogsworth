@@ -35,7 +35,7 @@ class LightsDashboard extends Component{
       ],
     }
 
-    let socket = new Socket("ws://localhost:4000/socket");
+    let socket = new Socket("ws://192.168.1.38:4000/socket");
     socket.connect();
     this.channel = socket.channel("lights:all", {});
     this.channel.on("update:all", payload => {

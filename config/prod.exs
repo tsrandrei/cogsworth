@@ -13,7 +13,8 @@ config :cogsworth, CogsworthWeb.Endpoint,
   load_from_system_env: true,
   server: true,
   url: [host: "localhost", port: 4000],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  check_origin: ["http://192.168.1.38", "http://trantor.local", "http://192.168.1.38:4000"]
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -54,4 +55,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
-import_config "docker.secret.exs"
+import_config "prod.secret.exs"
